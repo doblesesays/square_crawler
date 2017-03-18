@@ -46,37 +46,26 @@ class ProfileController extends Controller
      */
     protected function updateSave(Request $request)
     {
+    	$this->validate($request, [
+	        'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+	    ]);
 
     	$input = $request->all();
-    	//dd($input);
-        // return User::Update([
-        //     'name' => $input['name'],
-        //     'email' => $input['email'],
-        //     // 'password' => bcrypt($data['password']),
-        // ]);
-
         $user = User::find(Auth::id());
-		$user->name = $input['name'];
-		$user->email = $input['email'];
-		$user->save();
+        $email = User::where('email', $input['email'])->first();
 
-		//Auth::setUser($user);
-		$request->session()->flash('alert-success', 'Profile was successful updated!');
+        if( $email==null || ($email['email'] == $user['email'] ) ) {
+        	$user->name = $input['name'];
+			$user->email = $input['email'];
+			$user->save();
+
+			$request->session()->flash('alert-success', 'Profile was successful updated!');
+	    } else {
+	    	$request->session()->flash('alert-danger', 'The email already exist!');
+	    }
+		
 		return view('/home');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            // 'password' => 'required|min:6|confirmed',
-        ]);
-    }
 }
