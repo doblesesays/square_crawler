@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/logout', function () {
+//     Auth::logout();
+//     return redirect('/');
+// });
+
+Route::get('/', 'MainController@inventory');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+// Route::get('/updateUser', 'UpdateUserController@update');
+// Route::get('/updateUser', 'UpdateUserController@index');
+// Route::post('/updateUser', 'UpdateUserController@update');
