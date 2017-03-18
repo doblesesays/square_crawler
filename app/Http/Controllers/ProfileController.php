@@ -15,15 +15,8 @@ class ProfileController extends Controller
 
 	use RegistersUsers;
 
-    // *
-    //  * Where to redirect users after registration.
-    //  *
-    //  * @var string
-     
-    // protected $redirectTo = '/';
-
     /**
-     * Update the user's profile.
+     * Show the Update user's profile view.
      *
      * @return Response
      */
@@ -33,16 +26,15 @@ class ProfileController extends Controller
         {
             $user = Auth::user();
             return view('profile/update')->withUser($user);
-            //dd(Auth::id());
 
         }
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * Update a new user instance after a validation.
      *
-     * @param  array  $data
-     * @return User
+     * @param  Request  $request
+     * @return response
      */
     protected function updateSave(Request $request)
     {

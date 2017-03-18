@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## Crawel Web App with Laravel for job test with Square1 software LTD
+## Crawler Web App with Laravel for job test with Square1 software LTD
 
 ## System of login
 

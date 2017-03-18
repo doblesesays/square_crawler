@@ -11,16 +11,12 @@
 |
 */
 
-// Route::get('/logout', function () {
-//     Auth::logout();
-//     return redirect('/');
-// });
+Auth::routes();
 
 Route::get('/', 'MainController@inventory');
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index');
 
+//Profile routes
 Route::get('/updateProfile', 'ProfileController@updateProfile');
 Route::post('/updateProfile', [ 'as' => 'updateProfile', 'uses' => 'ProfileController@updateSave']);
