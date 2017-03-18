@@ -22,6 +22,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-// Route::get('/updateUser', 'UpdateUserController@update');
-// Route::get('/updateUser', 'UpdateUserController@index');
-// Route::post('/updateUser', 'UpdateUserController@update');
+Route::get('/updateProfile', 'ProfileController@updateProfile');
+Route::post('/updateProfile', [ 'as' => 'updateProfile', 'uses' => 'ProfileController@updateSave']);

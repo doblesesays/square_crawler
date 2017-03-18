@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Square Crawler') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -70,11 +70,11 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
-                                    <!-- <li>
-                                        <a href="{{ url('/updateUser') }}">
-                                            Edit profile
+                                    <li>
+                                        <a href="{{ url('/updateProfile') }}">
+                                            Update profile
                                         </a>
-                                    </li> -->
+                                    </li>
                                 </ul>
                             </li>
                         @endif
