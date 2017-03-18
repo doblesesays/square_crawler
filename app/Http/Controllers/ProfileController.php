@@ -61,6 +61,7 @@ class ProfileController extends Controller
 		$user->save();
 
 		//Auth::setUser($user);
+		$request->session()->flash('alert-success', 'Profile was successful updated!');
 		return view('/home');
     }
 
